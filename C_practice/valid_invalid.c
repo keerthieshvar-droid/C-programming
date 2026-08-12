@@ -3,7 +3,7 @@ int sequences(int arr[],int n)
 {
      for(int i = 0; i < n; i++)
         {
-          if(arr[i] - arr[i + 1] == 1)
+          if(arr[i] - arr[i + 1] != 1)
            {
               return 1;
            }
@@ -15,7 +15,7 @@ int sequences(int arr[],int n)
 }
 int main()
 {
-   int arr[25],n,i;
+   int arr[25],n,i,valid;
   printf("Enter a number of elements:");
    scanf("%d" , &n);
 
@@ -25,7 +25,9 @@ int main()
         scanf("%d" , &arr[i]);
       }
 
-   if(sequences(arr, n))
+       valid = sequences(arr, n);
+
+   if(valid == 1)
      {
        printf("Valid sequences");
      }

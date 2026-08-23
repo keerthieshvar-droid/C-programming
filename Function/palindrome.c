@@ -1,30 +1,46 @@
-#include<stdio.h>
-int reverse(int n)
-{
-         int digit ,  rev = 0;
-         while(n > 0)
-{
-          digit = n % 10;
-          rev = rev * 10 + digit;
-          n = n / 10;
-}
+#include <stdio.h>
 
-   return rev;
+int ispalindrome(int n)
+{
+     int original = n;
+     int reverse = 0;
+     int digit;
+
+  while(n > 0)
+  {
+     digit = n % 10;
+     reverse = reverse * 10 + digit;
+     n = n / 10;
+  }
+
+   if(original == reverse)
+     return 1;
+   else
+     return 0;
 }
 
 int main()
 {
-      int n , result;
+    int arr[100], n, i;
 
-      printf("Enter a number:");
-      scanf("%d" , &n);
+     printf("Enter a number of elements:");
+     scanf("%d", &n);
 
-      result = reverse(n);
+    printf("Enter array elements:");
+   for(i = 0; i < n; i++)
+   {
+       scanf("%d" , &arr[i]);
+   }
 
-      printf("Result = %d\n" , result);
+    for(i = 0; i < n; i++)
+   {
+         if(ispalindrome(arr[i]) == 0)
+         {
+           printf("First Non-palindrome = %d\n" , arr[i]);
+           break;
+         }
+   }
 
-
-     return 0;
+  return 0;
 }
-
 
